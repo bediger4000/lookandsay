@@ -86,6 +86,8 @@ $  ./las3 12
 12      3113112221232112111312211312113211
 ```
 
+One follow-on here is to add the ability of changing the starting string.
+
 ## Interview Analysis
 
 This is a good interview problem.
