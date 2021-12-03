@@ -20,21 +20,15 @@ func main() {
 	}
 }
 
-type Digit struct {
-	value rune
-	count int
-}
-
 func lookAndSay(x string) string {
 
-	// count base-10 digits in string representation
-	var digits []*Digit
+	asString := ""
 	last := '0'
 	count := 0
 	for _, digit := range x {
 		if digit != last {
 			if count != 0 {
-				digits = append(digits, &Digit{value: last, count: count})
+				asString += fmt.Sprintf("%d%c", count, last)
 			}
 			count = 0
 		}
@@ -43,13 +37,7 @@ func lookAndSay(x string) string {
 
 	}
 	if count != 0 {
-		digits = append(digits, &Digit{value: last, count: count})
-	}
-
-	// Construct next sequence element as a string
-	asString := ""
-	for _, digit := range digits {
-		asString += fmt.Sprintf("%d%c", digit.count, digit.value)
+		asString += fmt.Sprintf("%d%c", count, last)
 	}
 
 	return asString
